@@ -28,11 +28,13 @@
     </tr>
     </table>
 
-    <input type="submit" value="login">
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p><a href="#">Lost password?</a></p>
+    
+    <input type="submit" value="Login">
     <input type="hidden" name="next" value="{{ next }}">
     </form>
 
-    {# Assumes you setup the password_reset view in your URLconf #}
-    <p><a href="#">Lost password?</a></p>
+    <p><a href="{% url 'user-register' %}">Need an account? Register now!</a></p>
 
 {% endblock content %}
