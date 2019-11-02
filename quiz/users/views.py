@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
 
 
@@ -10,8 +10,17 @@ def quiz_home(request):
 
 
 def user_register(request):
-    form = UserRegistrationForm()
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('user-login')
+    else:
+        form = UserRegistrationForm()
+    
     context = {
         'form': form,
+        'form_errors': list(form.errors.values()),
     }
     return render(request, 'users/register.html', context=context)
