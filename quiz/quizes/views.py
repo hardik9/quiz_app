@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
+@login_required
+def new_quiz(request):
+    
+    context = {
+        'user': request.user,
+    }
+    return render(request, 'quizes/quiz.html', context=context)
