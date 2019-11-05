@@ -1,4 +1,6 @@
 {% extends 'users/base.html' %}
 {% block content %}
     <h1>Logout page</h1>
+    <p>You have been logged out!</p>
+    <p><a href="{% url 'user-login' %}">Login</a></p>
 {% endblock content %}
