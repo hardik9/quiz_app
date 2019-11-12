@@ -1,4 +1,22 @@
 {% extends 'users/base.html' %}
 {% block content %}
     <h1>Add question page</h1>
+    <form method="post" action="{% url 'add-q' %}">
+        {% csrf_token %}
+        <table>
+        <tr>
+            <td>{{ form.question.label_tag }}</td>
+            <td>{{ form.question }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.answer.label_tag }}</td>
+            <td>{{ form.answer }}</td>
+        </tr>
+        </table>
+    
+        <p><a href="#">Reset</a></p>
+        
+        <input type="submit" value="Add">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
 {% endblock content %}
