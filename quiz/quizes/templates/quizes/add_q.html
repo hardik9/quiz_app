@@ -1,6 +1,7 @@
 {% extends 'users/base.html' %}
 {% block content %}
     <h1>Add question page</h1>
+    <p><a href="{% url 'quiz-home' %}">Home</a></p>
     <form method="post" action="{% url 'add-q' %}">
         {% csrf_token %}
         <table>
