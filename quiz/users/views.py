@@ -3,13 +3,6 @@ from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
 
 
-@login_required
-def quiz_home(request):
-    context = {
-        'user': request.user,
-    }
-    return render(request, 'users/quiz_home.html',  context=context)
-
 
 def user_register(request):
     if request.method == 'POST':

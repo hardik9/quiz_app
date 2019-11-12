@@ -9,3 +9,12 @@ def new_quiz(request):
         'user': request.user,
     }
     return render(request, 'quizes/quiz.html', context=context)
+
+
+@login_required
+def quiz_home(request):
+    context = {
+        'user': request.user,
+    }
+    return render(request, 'quizes/quiz_home.html',  context=context)
+
