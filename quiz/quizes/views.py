@@ -18,3 +18,9 @@ def quiz_home(request):
     }
     return render(request, 'quizes/quiz_home.html',  context=context)
 
+@login_required
+def add_q(request):
+    context = {
+        'user': request.user,
+    }
+    return render(request, 'quizes/add_q.html', context=context)
